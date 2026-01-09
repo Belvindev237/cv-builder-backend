@@ -9,3 +9,8 @@ passlib[bcrypt]
 bcrypt
 python-multipart
 python-dotenv
+python-jose[cryptography]
+pytest
+pytest-asyncio
+httpx
+pytest-mock
