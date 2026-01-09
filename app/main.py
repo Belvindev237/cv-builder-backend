@@ -6,8 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title="Mon API avec FastAPI et MongoDB")
 app.include_router(auth.router)  # On inclut le routeur d'authentification
 origins = [
-    "http://localhost:3000",
-    "http://localhost:8000",
+    "https://cv-builder-iota-three.vercel.app",
+    "https://cv-builder-d7rd.onrender.com",
 ]
 app.add_middleware(
     CORSMiddleware,
