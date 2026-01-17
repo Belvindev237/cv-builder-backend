@@ -1,17 +1,40 @@
+# --- Framework Core ---
 fastapi
 uvicorn
-motor
+
+# --- Base de Données ---
 pymongo
-pydantic
-pydantic-settings
-email-validator
+motor
+dnspython==2.8.0
+
+# --- Sécurité & Authentification ---
 passlib[bcrypt]
-bcrypt
-python-multipart
-python-dotenv
+bcrypt==4.0.1
 python-jose[cryptography]
+python-multipart
+cryptography==46.0.3
+ecdsa==0.19.1
+rsa==4.9.1
+pyasn1==0.6.1
+
+# --- Validation & Configuration ---
+pydantic==2.12.5
+pydantic-settings
+pydantic_core==2.41.5
+email-validator==2.3.0
+python-dotenv
+annotated-types==0.7.0
+idna==3.11
+
+# --- Utilitaires & Compatibilité ---
+six==1.17.0
+cffi==2.0.0
+pycparser==2.23
+typing_extensions==4.15.0
+typing-inspection==0.4.2
+
+# --- Tests & Développement ---
 pytest
 pytest-asyncio
-httpx
 pytest-mock
-bcrypt==4.0.1
+httpx

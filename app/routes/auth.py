@@ -34,7 +34,8 @@ async def login_user(login_data: UserLogin):
   return{
     "access_token":access_token,
     "token_type":"bearer",
-    "username": user["username"]
+    "username": user["username"],
+    "userEmail":user["email"]
   
   }
 
