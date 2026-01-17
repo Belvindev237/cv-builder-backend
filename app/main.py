@@ -1,13 +1,17 @@
 from fastapi import FastAPI
 from app.database import db  # On importe la connexion depuis ton fichier database.py
 from app.routes import auth  # On importe le routeur d'authentification
+from app.routes import cv_route
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Mon API avec FastAPI et MongoDB")
 app.include_router(auth.router)  # On inclut le routeur d'authentification
+app.include_router(cv_route.router)
 origins = [
     "https://cv-builder-iota-three.vercel.app",
     "https://cv-builder-d7rd.onrender.com",
+    "http://localhost:3000"
+    "http://localhost:8000"
 ]
 app.add_middleware(
     CORSMiddleware,
