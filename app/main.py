@@ -9,15 +9,17 @@ app.include_router(auth.router)  # On inclut le routeur d'authentification
 app.include_router(cv_route.router)
 origins = [
     "https://cv-builder-iota-three.vercel.app",
-    "https://cv-builder-d7rd.onrender.com",
-    "http://localhost:3000"
-    "http://localhost:8000"
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://localhost:8000",
 ]
+
+# 2. Applique la configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # On autorise tout temporairement
+    allow_origins=origins,  # <--- UTILISE LA LISTE, PAS "*"
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"], # On liste les méthodes
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
