@@ -11,7 +11,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # 2. Configuration du Token JWT (pour plus tard)
 SECRET_KEY = "TA_CLE_TRES_SECRETE_NE_PAS_PARTAGER" 
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES =60
+ACCESS_TOKEN_EXPIRE_MINUTES =60*15
 
 # --- Fonction pour hacher le mot de passe ---
 def hash_password(password: str) -> str:
