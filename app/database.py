@@ -6,7 +6,7 @@ MONGO_URL = "mongodb+srv://new-user:1E10A8TVeqycmo4m@cluster0.9qj2las.mongodb.ne
 MONGO_URI="mongodb://localhost:27017/cv_builder"
 
 # Initialisation
-client = AsyncIOMotorClient(MONGO_URI)
+client = AsyncIOMotorClient(MONGO_URL)
 db = client.cv_builder_database 
 
 # Collections
