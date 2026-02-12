@@ -27,7 +27,7 @@ class Language(BaseModel):
 
 class CVModel(BaseModel):
     user_id:Optional[str]=None
-    template_id:str="creative-ui"
+    template_id:int =1
     first_name: str = Field(...)
     last_name: str = Field(...)
     job_title: str = Field(...)
