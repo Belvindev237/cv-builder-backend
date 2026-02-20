@@ -1,21 +1,19 @@
-# On utilise l'image officielle Playwright qui contient déjà Linux + Python + Dépendances Navigateur
-FROM mcr.microsoft.com/playwright/python:v1.45.0-jammy
+FROM python:3.11-slim
 
-# Définir le dossier de travail
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Copier le fichier de dépendances
 COPY requirements.txt .
+RUN pip install -r requirements.txt
+RUN playwright install chromium --with-deps
 
-# Installer les dépendances Python
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Installer Chromium (les dépendances système sont déjà là, donc pas d'erreur de mot de passe !)
-RUN playwright install chromium
-
-# Copier tout le reste du code
 COPY . .
 
-# Commande pour lancer ton serveur FastAPI / Uvicorn
-# Note : Render utilise le port 10000 par défaut
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+
+
